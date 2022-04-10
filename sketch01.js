@@ -1,19 +1,17 @@
-let octahedron;
-
-function preload() {
-  octahedron = loadModel('tinker.obj');
-}
-
 function setup() {
-  createCanvas(400, 400, WEBGL);
+  createCanvas(windowWidth, windowHeight);
+  background(0);
+  noStroke();
 }
 
 function draw() {
-  background(200);
-  scale(5); 
-  //rotateX(frameCount * 0.01);
-  normalMaterial();
-  rotateY(frameCount * 0.01);
-  model(octahedron);
+  if(mouseIsPressed) {
+  textSize(100);
+  textAlign(CENTER, CENTER);
+  text('Gestalten mit ', windowWidth/2, windowHeight/2 -80);
+  text('digitalen Medien', windowWidth/2, windowHeight/2 +80);
+  }
+  fill(mouseX,(mouseX+mouseY)/3,mouseY);
   
+  ellipse(mouseX, mouseY, 60, 60);
 }
